@@ -1,0 +1,9 @@
+<nav class="top-menu">
+    <a *ngFor="let link of links"
+        id="link.route"
+       [routerLink]="link.route"
+       class="top-menu-option">{{link.name}}</a>
+
+
+</nav>
+
