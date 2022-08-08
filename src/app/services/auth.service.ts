@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 import { AppConstants } from '../adts/app-constants';
 import { EmailValidator } from '@angular/forms';
  
-const httpOptions = {
+/*const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
-};
+};*/
  
 @Injectable({
   providedIn: 'root'
@@ -15,20 +15,21 @@ export class AuthService {
   constructor(private http: HttpClient) { }
  
   login(credentials: any): Observable<any> {
-    return this.http.post(AppConstants.AUTH_API + 'signin', {
-      username: credentials.username,
-      password: credentials.password
-    }, httpOptions);
+    alert("Will login");
+    let data = {username: credentials.username, password: credentials.password};
+    return this.http.post(AppConstants.LOGIN_URL + 'login', data);
   }
  
   register(user: any): Observable<any> {
-    return this.http.post(AppConstants.AUTH_API + 'signup', {
-      displayName: user.displayName,
+    alert("Will register");
+    let data = { 
+      name: user.displayName,
       email: user.email,
       username: user.email,
       password: user.password,
-      matchingPassword: user.matchingPassword,    
-      socialProvider: 'LOCAL'
-    }, httpOptions);
+      matchingPassword: user.matchingPassword
+    };
+    return this.http.post(AppConstants.REGISTER_URL, data);
   }
+
 }

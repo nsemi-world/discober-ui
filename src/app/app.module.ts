@@ -28,10 +28,6 @@ import { OverviewBodyComponent } from './components/overview-body/overview-body.
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { BoardUserComponent } from './components/board-user/board-user.component';
-import { BoardAdminComponent } from './components/board-admin/board-admin.component';
-import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component'; 
-import { authInterceptorProviders } from './adts/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -51,10 +47,7 @@ import { authInterceptorProviders } from './adts/auth-interceptor';
     OverviewBodyComponent,
     ProfileComponent,
     LoginComponent,
-    RegisterComponent,
-    BoardUserComponent,
-    BoardAdminComponent,
-    BoardModeratorComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +59,7 @@ import { authInterceptorProviders } from './adts/auth-interceptor';
     HttpClientModule,
     FormsModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,9 +21,13 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     this.authService.register(this.form).subscribe(
       data => {
-        console.log(data);
+        alert(data.message);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        // Redirect to login
+        setTimeout(function() {
+          window.location.href = "login";
+        }, 5000);
       },
       err => {
         this.errorMessage = err.error.message;

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AppConstants } from '../adts/app-constants';
+import { User } from '../adts/user';
  
 const httpOptions = {
           headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -12,26 +13,14 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
+
+  user!: User;
  
   constructor(private http: HttpClient) { }
- 
-  getPublicContent(): Observable<any> {
-    return this.http.get(AppConstants.API_URL + 'all', { responseType: 'text' });
+
+  getCurrentUser(): User {
+    return this.user;
   }
  
-  getUserBoard(): Observable<any> {
-    return this.http.get(AppConstants.API_URL + 'user', { responseType: 'text' });
-  }
- 
-  getModeratorBoard(): Observable<any> {
-    return this.http.get(AppConstants.API_URL + 'mod', { responseType: 'text' });
-  }
- 
-  getAdminBoard(): Observable<any> {
-    return this.http.get(AppConstants.API_URL + 'admin', { responseType: 'text' });
-  }
- 
-  getCurrentUser(): Observable<any> {
-    return this.http.get(AppConstants.API_URL + 'user/me', httpOptions);
-  }
+  
 }
