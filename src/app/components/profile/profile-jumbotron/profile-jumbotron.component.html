@@ -1,0 +1,18 @@
+<div class="py-4">
+
+</div>
+
+<div class="container-fluid py-2 border-bottom" *ngIf="currentUser">
+
+    <div class="media py-5 d-flex justify-content-center align-items-center">
+        <img id="profile-image" class="mx-3 shadow" src="...">
+        <div class="media-body ml-5">
+            <h3 class="display-2"><strong>{{ currentUser.name }}</strong></h3>
+            <p>
+             {{ currentUser.email }} <br/> 
+             <span *ngFor="let role of currentUser.roles"  class="badge badge-primary bg-secondary">{{role.name}}</span>
+            </p>
+        </div>
+    </div>
+</div>
+

@@ -25,10 +25,12 @@ import { OverviewPageComponent } from './pages/overview-page/overview-page.compo
 import { OverviewHeaderComponent } from './components/overview-header/overview-header.component';
 import { OverviewJumbotronComponent } from './components/overview-jumbotron/overview-jumbotron.component';
 import { OverviewBodyComponent } from './components/overview-body/overview-body.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { ProfileJumbotronComponent } from './components/profile/profile-jumbotron/profile-jumbotron.component';
+import { ProfileBodyComponent } from './components/profile/profile-body/profile-body.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -46,10 +48,12 @@ import { LogoutComponent } from './components/logout/logout.component';
     OverviewHeaderComponent,
     OverviewJumbotronComponent,
     OverviewBodyComponent,
-    ProfileComponent,
     LoginComponent,
     RegisterComponent,
-    LogoutComponent
+    LogoutComponent,
+    ProfileJumbotronComponent,
+    ProfileBodyComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
