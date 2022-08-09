@@ -23,6 +23,7 @@ export class TopMenuOptionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    //alert("Top menu options...");
   }
 
 }

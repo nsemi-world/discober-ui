@@ -1,6 +1,8 @@
+import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppConstants } from 'src/app/adts/app-constants';
+import { User } from 'src/app/adts/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { UserService } from 'src/app/services/user.service';
@@ -21,17 +23,14 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private route: ActivatedRoute, private userService: UserService) {}
  
   ngOnInit(): void {
-    if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-      this.currentUser = this.tokenStorage.getUser();
-    }
   }
  
   onSubmit(): void {
     this.authService.login(this.form).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.login(data.user);
+        this.login(data);
+        window.location.href="profile";
+
       },
       err => {
         this.errorMessage = err.error.message;
@@ -40,12 +39,14 @@ export class LoginComponent implements OnInit {
     );
   }
  
-  login(user: any): void {
-    this.tokenStorage.saveUser(user);
+  login(data:any): void {
+    this.tokenStorage.saveTokens(data.accessToken, data.refreshToken);
+    this.tokenStorage.saveUser(data.user);
+    
     this.isLoginFailed = false;
     this.isLoggedIn = true;
     this.currentUser = this.tokenStorage.getUser();
-    window.location.reload();
+    //window.location.reload();
   }
  
 }

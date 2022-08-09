@@ -14,13 +14,13 @@
 
     <div class="auth-menu">
       <div class="" *ngIf="!isLoggedIn">
-        <a href="/register" class="mx-2" routerLink="register">Sign Up</a>
+        <a href="/register" class="mx-2" routerLink="register">Register</a>
         <a href="/login" class="mx-2" routerLink="login">Login</a>
       </div>
     
       <div class="" *ngIf="isLoggedIn">
-        <a href="/profile" class="" routerLink="profile">{{ username }}</a>
-        <a href class="" (click)="logout()">LogOut</a>
+        <a href="/profile" class="" routerLink="profile">Profile</a>
+        <a href="/logout" class="mx-2" routerLink="logout">Logout</a>
       </div>
       </div>
 

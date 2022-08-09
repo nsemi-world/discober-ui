@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-top-menu',
@@ -13,14 +15,13 @@ export class TopMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    //alert("IS LOGED IN? " +  this.isLoggedIn);
+    //alert("Username? " +  this.user);
   }
 
   onScroll(event:any) {   
-    alert("ON SCROLL");
-  }
-
-  logout() {
-    alert("Calling logout...");
+    //alert("ON SCROLL");
   }
 
 }

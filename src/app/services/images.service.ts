@@ -13,7 +13,7 @@ export class ImagesService {
 
 
   getImages(): Observable<Image[]> {
-    alert('Will retrieve images from... ' + new AppDomain().getImagesUrl());
+    //alert('Will retrieve images from... ' + new AppDomain().getImagesUrl());
     return this.http.get<Image[]>(new AppDomain().getImagesUrl());
   }
 
